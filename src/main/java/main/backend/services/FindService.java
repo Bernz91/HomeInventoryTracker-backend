@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class FindService {
@@ -37,7 +36,7 @@ public class FindService {
         return user;
     }
 
-    public List<ItemDisplay> findItemsByUserId(UUID userId){
+    public List<ItemDisplay> findItemsByUserId(String userId){
         List<Item> itemList = this.itemRepo.findByUserId(userId);
         List<ItemDisplay> itemDisplayList = new ArrayList<>();
         for(Item item: itemList){
@@ -53,7 +52,7 @@ public class FindService {
                item.getPurchaseList(), checkoutRecordList, item.getAlert());
     }
 
-    public List<GroceryDisplay> findGroceryListByUserId(UUID userId){
+    public List<GroceryDisplay> findGroceryListByUserId(String userId){
 
         List<GroceryDisplay> groceryDisplayList = new ArrayList<>();
 

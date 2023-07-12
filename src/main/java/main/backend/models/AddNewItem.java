@@ -4,12 +4,11 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class AddNewItem {
-    public UUID userId;
+    public String userId;
     public String categoryName;
     public String itemName;
     public LocalDate purchaseDate;

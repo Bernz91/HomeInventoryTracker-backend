@@ -8,16 +8,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 public interface ItemRepo extends JpaRepository<Item, Integer> {
 
     @Query("SELECT i FROM Item i WHERE i.itemName= :itemName AND i.userId.userID= :userId")
-    Item findItemByItemName(@Param("itemName") String itemName, @Param("userId") UUID userId);
+    Item findItemByItemName(@Param("itemName") String itemName, @Param("userId") String userId);
 
     @Query("SELECT i FROM Item i WHERE  i.userId.userID= :userId")
-    List<Item> findByUserId(@Param("userId") UUID userId);
+    List<Item> findByUserId(@Param("userId") String userId);
 
     @Modifying
     @Query("UPDATE Item i SET i.totalQuantity = :totalQuantity WHERE i.itemNo= :itemNo")

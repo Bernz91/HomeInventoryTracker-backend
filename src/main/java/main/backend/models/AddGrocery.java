@@ -4,12 +4,10 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class AddGrocery {
-    public UUID userId;
+    public String userId;
     public int itemNo;
     public String itemName;
     public int quantity;

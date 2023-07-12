@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,9 +12,9 @@ public class GroceryDisplay {
     public boolean ticked;
     public int itemNo;
     public String itemName;
-    public UUID userId;
+    public String userId;
 
-    public GroceryDisplay(int quantity, boolean ticked, String itemName, UUID userId) {
+    public GroceryDisplay(int quantity, boolean ticked, String itemName, String userId) {
         this.quantity = quantity;
         this.ticked = ticked;
         this.itemName = itemName;

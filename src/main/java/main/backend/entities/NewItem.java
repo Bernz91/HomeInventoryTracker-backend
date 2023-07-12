@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import main.backend.entities.idClasses.NewItemId;
 
-import java.util.UUID;
 
 @Entity
 @Table(name="newItems")
@@ -14,7 +13,7 @@ import java.util.UUID;
 public class NewItem extends GroceryItem{
     @Id
     @JsonIgnore
-    @Getter @Setter private UUID userId;
+    @Getter @Setter private String userId;
 
     @Id
     @Getter @Setter private String itemName;

@@ -5,9 +5,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import lombok.*;
 import main.backend.serializations.CustomUserSerializer;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @Entity
 //@JsonSerialize(using= CustomUserSerializer.class)
@@ -16,9 +17,10 @@ import java.util.UUID;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Getter @Setter private UUID userID;
-//    @Getter @Setter private String userID;
+    @UuidGenerator
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    @Getter @Setter private UUID userID;
+    @Getter @Setter private String userID;
     @JsonIgnore
     @Getter @Setter private String email;
     @JsonIgnore

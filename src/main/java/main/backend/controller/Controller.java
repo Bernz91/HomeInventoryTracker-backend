@@ -10,10 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class Controller {
@@ -42,13 +39,13 @@ public class Controller {
     }
     @CrossOrigin(origins="http://localhost:3000/")
     @GetMapping("/user/{userId}/grocery")
-    public ResponseEntity<List<GroceryDisplay>> getGroceryByUserId(@PathVariable(value="userId") UUID userId) throws IllegalArgumentException{
+    public ResponseEntity<List<GroceryDisplay>> getGroceryByUserId(@PathVariable(value="userId") String userId) throws IllegalArgumentException{
         List<GroceryDisplay> groceryList = this.findService.findGroceryListByUserId(userId);
         return ResponseEntity.ok().body(groceryList);
     }
     @CrossOrigin(origins="http://localhost:3000/")
     @GetMapping("/user/{userId}/item")
-    public ResponseEntity<List<ItemDisplay>> getItemsByUserId(@PathVariable(value="userId") UUID userId) throws IllegalArgumentException{
+    public ResponseEntity<List<ItemDisplay>> getItemsByUserId(@PathVariable(value="userId") String userId) throws IllegalArgumentException{
         List<ItemDisplay> itemDisplayList = this.findService.findItemsByUserId(userId);
         return ResponseEntity.ok().body(itemDisplayList);
     }
@@ -179,7 +176,7 @@ public class Controller {
 
     @CrossOrigin(origins="http://localhost:3000/")
     @DeleteMapping("/grocery/new/{userId}")
-    public ResponseEntity<?> deleteNewItem(@PathVariable(value="userId") UUID userId, @RequestParam String itemName) throws IllegalArgumentException{
+    public ResponseEntity<?> deleteNewItem(@PathVariable(value="userId") String userId, @RequestParam String itemName) throws IllegalArgumentException{
         this.deleteService.deleteNewItem(userId, itemName);
         return ResponseEntity.status(204).build();
     }

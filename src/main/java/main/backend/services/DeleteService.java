@@ -8,7 +8,6 @@ import main.backend.exceptions.ResourceNotFoundException;
 import main.backend.repositories.*;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 
 @Service
 public class DeleteService {
@@ -33,7 +32,7 @@ public class DeleteService {
     }
 
     @Transactional
-    public void deleteNewItem(UUID userId, String itemName){
+    public void deleteNewItem(String userId, String itemName){
         this.newItemRepo.deleteByItemNameAndUserId(userId, itemName);
     }
 
