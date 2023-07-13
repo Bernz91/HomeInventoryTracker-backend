@@ -15,4 +15,6 @@ public interface CheckoutRecordRepo extends JpaRepository<CheckoutRecord, Intege
 
     @Query("SELECT c FROM CheckoutRecord c WHERE c.itemNo = :itemNo")
     List<CheckoutRecord> findCheckoutRecordsByItemNo(@Param("itemNo") int itemNo);
+
+
 }

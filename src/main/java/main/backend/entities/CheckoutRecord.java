@@ -17,9 +17,6 @@ public class CheckoutRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter private int checkoutNo;
-//    @ManyToOne
-//    @JoinColumn(name="itemNo")
-//    @Getter @Setter private Item itemNo;
 
     @Getter @Setter private int itemNo;
     @ManyToOne

@@ -48,7 +48,7 @@ public class FindService {
     public ItemDetailDisplay findItemById(int itemNo){
         Item item = this.itemRepo.findById(itemNo).orElseThrow(()->new ResourceNotFoundException("Item is not found for this itemNo: "+ itemNo));
         List<CheckoutRecord> checkoutRecordList = this.checkoutRecordRepo.findCheckoutRecordsByItemNo(itemNo);
-       return new ItemDetailDisplay(item.getItemNo(), item.getItemName(), item.getCategoryNo().getCategoryName(), item.getTotalQuantity(),
+        return new ItemDetailDisplay(item.getItemNo(), item.getItemName(), item.getCategoryNo().getCategoryName(), item.getTotalQuantity(),
                item.getPurchaseList(), checkoutRecordList, item.getAlert());
     }
 
